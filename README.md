@@ -25,7 +25,7 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      viljaste/httpd:latest
+      viljaste/httpd:2.2
 
 Using the `docker-compose` command
 
