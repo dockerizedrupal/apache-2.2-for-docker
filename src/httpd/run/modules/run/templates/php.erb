@@ -2,7 +2,7 @@
   AddHandler php .php
 
   Alias /php /httpd/php
-  FastCgiExternalServer /httpd/php -host <%= @php_host %> -idle-timeout 300 -pass-header Authorization
+  FastCgiExternalServer /httpd/php -host <%= @php_host %> -idle-timeout <%= @timeout %> -pass-header Authorization
 
   <Location /php>
     Order deny,allow
