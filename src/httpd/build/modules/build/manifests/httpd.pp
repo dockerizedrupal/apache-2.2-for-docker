@@ -5,7 +5,7 @@ class build::httpd {
   bash_exec { 'usermod -d /httpd/data www-data': }
 
   bash_exec { 'a2enmod actions': }
-  bash_exec { 'a2enmod proxy_fcgi': }
+  bash_exec { 'a2enmod fastcgi': }
   bash_exec { 'a2enmod vhost_alias': }
   bash_exec { 'a2enmod rewrite': }
   bash_exec { 'a2enmod ssl': }
@@ -15,19 +15,13 @@ class build::httpd {
     ensure => absent
   }
 
-  file { '/etc/apache2/sites-enabled/000-default.conf':
+  file { '/etc/apache2/sites-enabled/000-default':
     ensure => absent
   }
 
-  file { '/etc/apache2/conf-available/logs.conf':
+  file { '/etc/apache2/conf.d/logs':
     ensure => present,
-    source => 'puppet:///modules/build/etc/apache2/conf-available/logs.conf',
+    source => 'puppet:///modules/build/etc/apache2/conf.d/logs',
     mode => 644
-  }
-
-  file { '/etc/apache2/conf-enabled/logs.conf':
-    ensure => link,
-    target => '/etc/apache2/conf-available/logs.conf',
-    require => File['/etc/apache2/conf-available/logs.conf']
   }
 }
