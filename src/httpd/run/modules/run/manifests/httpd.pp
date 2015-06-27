@@ -80,5 +80,5 @@ class run::httpd {
 
   bash_exec { 'mkdir -p /httpd/data': }
 
-  bash_exec { 'chown container.container /var/lib/apache2/fastcgi': }
+  bash_exec { 'chown -R container.container /var/lib/apache2': }
 }
