@@ -1,14 +1,14 @@
 <VirtualHost *:80>
-    DocumentRoot /httpd/data
+  DocumentRoot /httpd/data
 
-    <Directory "/httpd/data">
-      <% if @indexes == "On" %>
-        Options +Indexes
-      <% else %>
-        Options -Indexes
-      <% end %>
-      AllowOverride All
-      Order allow,deny
-      Allow from all
-    </Directory>
+  <Directory "/httpd/data">
+    <% if @indexes == "On" %>
+      Options +Indexes
+    <% else %>
+      Options -Indexes
+    <% end %>
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+  </Directory>
 </VirtualHost>
