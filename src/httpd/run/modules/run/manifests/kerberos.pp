@@ -6,16 +6,16 @@ class run::kerberos {
   }
 
   if file_exists('/etc/apache2/kerberos.krb5keytab') {
-    file { '/etc/apache2/sites-available/kerberos.conf':
+    file { '/etc/apache2/sites-available/kerberos':
       ensure => present,
-      content => template('run/kerberos.conf.erb'),
+      content => template('run/kerberos.erb'),
       mode => 644
     }
 
-    file { '/etc/apache2/sites-enabled/kerberos.conf':
+    file { '/etc/apache2/sites-enabled/kerberos':
       ensure => link,
-      target => '/etc/apache2/sites-available/kerberos.conf',
-      require => File['/etc/apache2/sites-available/kerberos.conf']
+      target => '/etc/apache2/sites-available/kerberos',
+      require => File['/etc/apache2/sites-available/kerberos']
     }
   }
 }

@@ -25,13 +25,14 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/httpd:latest
+      dockerizedrupal/httpd:2.2
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-httpd.git "${TMP}" \
       && cd "${TMP}" \
+      && git checkout 2.2 \
       && sudo docker-compose up
 
 ## Build the image
@@ -39,7 +40,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-httpd.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t dockerizedrupal/httpd:latest . \
+      && git checkout 2.2 \
+      && sudo docker build -t dockerizedrupal/httpd:2.2 . \
       && cd -
 
 ## License

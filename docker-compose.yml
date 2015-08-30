@@ -1,5 +1,5 @@
 httpd:
-  image: dockerizedrupal/httpd:latest
+  image: dockerizedrupal/httpd:2.2
   hostname: httpd
   ports:
     - "80:80"
