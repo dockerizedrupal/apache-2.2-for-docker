@@ -1,4 +1,4 @@
-FROM dockerizedrupal/base:debian-wheezy
+FROM dockerizedrupal/base-debian-wheezy:latest
 
 MAINTAINER Jürgen Viljaste <j.viljaste@gmail.com>
 
@@ -8,7 +8,7 @@ ADD ./src /src
 
 RUN /src/entrypoint.sh build
 
-VOLUME ["/httpd"]
+VOLUME ["/apache-2.2"]
 
 EXPOSE 80
 EXPOSE 443
