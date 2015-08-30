@@ -25,7 +25,7 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/apache-2.2:2.2
+      dockerizedrupal/apache-2.2:latest
 
 Using the `docker-compose` command
 
