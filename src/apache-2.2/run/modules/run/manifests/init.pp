@@ -1,5 +1,6 @@
 class run {
   require run::user
+  include run::user::permissions
 
   include run::apache22
 

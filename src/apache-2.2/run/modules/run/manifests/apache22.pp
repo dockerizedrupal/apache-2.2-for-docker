@@ -1,4 +1,6 @@
 class run::apache22 {
+  require run::user
+
   if $php_host {
     include run::apache22::conf_d::php
   }
@@ -79,6 +81,4 @@ class run::apache22 {
   }
 
   bash_exec { 'mkdir -p /apache-2.2/data': }
-
-  bash_exec { 'chown -R container.container /var/lib/apache2': }
 }
