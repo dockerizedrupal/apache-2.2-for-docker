@@ -10,7 +10,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /apache-2.2 \
-      dockerizedrupal/data:latest
+      dockerizedrupal/data:1.0.2
 
     CONTAINER="apache-2.2" && sudo docker run \
       --name "${CONTAINER}" \
@@ -25,13 +25,14 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/apache-2.2:latest
+      dockerizedrupal/apache-2.2:1.0.2
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-apache-2.2.git "${TMP}" \
       && cd "${TMP}" \
+      && git checkout 1.0.2 \
       && sudo docker-compose up
 
 ## Build the image
@@ -39,7 +40,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-apache-2.2.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t dockerizedrupal/apache-2.2:latest . \
+      && git checkout 1.0.2 \
+      && sudo docker build -t dockerizedrupal/apache-2.2:1.0.2 . \
       && cd -
 
 ## License
