@@ -9,7 +9,7 @@ class run::apache22 {
   include run::apache22::conf_d::timeout
 
   if $http and $https {
-    if ! file_exists('/apache-2.2/ssl/certs/apache-2.2.crt') {
+    if ! file_exists('/apache/ssl/certs/apache-2.2.crt') {
       require run::apache22::ssl
     }
 
@@ -51,7 +51,7 @@ class run::apache22 {
     }
   }
   elsif $https {
-    if ! file_exists('/apache-2.2/ssl/certs/apache-2.2.crt') {
+    if ! file_exists('/apache/ssl/certs/apache-2.2.crt') {
       require run::apache22::ssl
     }
 
@@ -80,5 +80,5 @@ class run::apache22 {
     }
   }
 
-  bash_exec { 'mkdir -p /apache-2.2/data': }
+  bash_exec { 'mkdir -p /apache/data': }
 }

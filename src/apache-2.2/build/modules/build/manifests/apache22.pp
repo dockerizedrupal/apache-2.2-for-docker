@@ -2,7 +2,7 @@ class build::apache22 {
   require build::apache22::packages
   require build::apache22::supervisor
 
-  bash_exec { 'usermod -d /apache-2.2/data www-data': }
+  bash_exec { 'usermod -d /apache/data www-data': }
 
   bash_exec { 'a2enmod actions': }
   bash_exec { 'a2enmod fastcgi': }

@@ -6,18 +6,19 @@ A [Docker](https://docker.com/) image for [Apache HTTP Server](http://httpd.apac
 
 Using the `docker` command:
 
-    CONTAINER="apache-2.2-data" && sudo docker run \
+    CONTAINER="apache-data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /apache-2.2 \
+      -v /apache/data \
+      -v /apache/ssl \
       dockerizedrupal/data:1.0.2
 
-    CONTAINER="apache-2.2" && sudo docker run \
+    CONTAINER="apache" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -p 80:80 \
       -p 443:443 \
-      --volumes-from apache-2.2-data \
+      --volumes-from apache-data \
       -e SERVER_NAME="localhost" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
@@ -25,14 +26,14 @@ Using the `docker` command:
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/apache-2.2:1.0.2
+      dockerizedrupal/apache-2.2:1.0.3
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-apache-2.2.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.2 \
+      && git checkout 1.0.3 \
       && sudo docker-compose up
 
 ## Build the image
@@ -40,8 +41,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-apache-2.2.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.2 \
-      && sudo docker build -t dockerizedrupal/apache-2.2:1.0.2 . \
+      && git checkout 1.0.3 \
+      && sudo docker build -t dockerizedrupal/apache-2.2:1.0.3 . \
       && cd -
 
 ## License

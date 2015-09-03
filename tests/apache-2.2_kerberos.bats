@@ -3,7 +3,7 @@
 DOCKER_COMPOSE_FILE="${BATS_TEST_DIRNAME}/apache-2.2_kerberos.yml"
 
 container() {
-  echo "$(docker-compose -f ${DOCKER_COMPOSE_FILE} ps apache-2.2 | grep apache-2.2 | awk '{ print $1 }')"
+  echo "$(docker-compose -f ${DOCKER_COMPOSE_FILE} ps apache | grep apache | awk '{ print $1 }')"
 }
 
 setup() {

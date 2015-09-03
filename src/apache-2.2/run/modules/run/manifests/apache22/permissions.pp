@@ -4,5 +4,5 @@ class run::apache22::permissions {
 
   bash_exec { 'chown -R container.container /var/lib/apache2': }
 
-  bash_exec { 'chown -R container.container /apache-2.2': }
+  bash_exec { 'chown -R container.container /apache': }
 }

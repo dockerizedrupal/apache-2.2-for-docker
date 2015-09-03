@@ -1,11 +1,11 @@
-apache-2.2:
-  image: dockerizedrupal/apache-2.2:1.0.2
-  hostname: apache-2.2
+apache:
+  image: dockerizedrupal/apache-2.2:1.0.3
+  hostname: apache
   ports:
     - "80:80"
     - "443:443"
   volumes_from:
-    - apache-2.2-data
+    - apache-data
   environment:
     - SERVER_NAME=localhost
     - TIMEOUT=300
@@ -13,8 +13,9 @@ apache-2.2:
     - INDEXES=Off
     - USER_ID=
     - GROUP_ID=
-apache-2.2-data:
+apache-data:
   image: dockerizedrupal/data:1.0.2
-  hostname: apache-2.2-data
+  hostname: apache-data
   volumes:
-    - /apache-2.2
+    - /apache/data
+    - /apache/ssl

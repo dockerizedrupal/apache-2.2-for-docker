@@ -1,6 +1,6 @@
-apache-2.2:
-  image: dockerizedrupal/apache-2.2:1.0.2
-  hostname: apache-2.2
+apache:
+  image: dockerizedrupal/apache-2.2:1.0.3
+  hostname: apache
   environment:
     - KERBEROS_DEFAULT_REALM=default-realm
     - KERBEROS_1_REALM=realm-1

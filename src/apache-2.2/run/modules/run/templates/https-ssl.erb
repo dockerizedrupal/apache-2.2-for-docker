@@ -1,8 +1,8 @@
 <IfModule mod_ssl.c>
   <VirtualHost *:443>
-    DocumentRoot /apache-2.2/data
+    DocumentRoot /apache/data
 
-    <Directory "/apache-2.2/data">
+    <Directory "/apache/data">
       <% if @indexes == "On" %>
         Options +Indexes
       <% else %>
@@ -20,7 +20,7 @@
     SSLHonorCipherOrder On
     SSLCipherSuite ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS
 
-    SSLCertificateFile /apache-2.2/ssl/certs/apache-2.2.crt
-    SSLCertificateKeyFile /apache-2.2/ssl/private/apache-2.2.key
+    SSLCertificateFile /apache/ssl/certs/apache-2.2.crt
+    SSLCertificateKeyFile /apache/ssl/private/apache-2.2.key
   </VirtualHost>
 </IfModule>

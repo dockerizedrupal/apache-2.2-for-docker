@@ -1,8 +1,8 @@
 <IfModule mod_fastcgi.c>
   AddHandler php .php
 
-  Alias /php /apache-2.2/php
-  FastCgiExternalServer /apache-2.2/php -host <%= @php_host %> -idle-timeout <%= @timeout %> -pass-header Authorization
+  Alias /php /apache/php
+  FastCgiExternalServer /apache/php -host <%= @php_host %> -idle-timeout <%= @timeout %> -pass-header Authorization
 
   <Location /php>
     Order deny,allow
