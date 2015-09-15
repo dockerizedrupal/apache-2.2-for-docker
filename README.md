@@ -20,20 +20,21 @@ Using the `docker` command:
       -p 443:443 \
       --volumes-from apache-data \
       -e SERVER_NAME="localhost" \
+      -e TIMEZONE="Etc/UTC" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
       -e INDEXES="Off" \
       -e USER_ID="" \
       -e GROUP_ID="" \
       -d \
-      dockerizedrupal/apache-2.2:1.0.5
+      dockerizedrupal/apache-2.2:1.0.6
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-apache-2.2.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.5 \
+      && git checkout 1.0.6 \
       && sudo docker-compose up
 
 ## Build the image
@@ -41,8 +42,8 @@ Using the `docker-compose` command
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-apache-2.2.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.5 \
-      && sudo docker build -t dockerizedrupal/apache-2.2:1.0.5 . \
+      && git checkout 1.0.6 \
+      && sudo docker build -t dockerizedrupal/apache-2.2:1.0.6 . \
       && cd -
 
 ## License
