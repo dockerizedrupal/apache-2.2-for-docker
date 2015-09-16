@@ -8,6 +8,10 @@ class run::apache22 {
   include run::apache22::conf_d::server_name
   include run::apache22::conf_d::timeout
 
+  if $http_basic_auth_password {
+    include run::apache22::http_basic_auth
+  }
+
   if $http and $https {
     if ! file_exists('/apache/ssl/certs/apache-2.2.crt') {
       require run::apache22::ssl

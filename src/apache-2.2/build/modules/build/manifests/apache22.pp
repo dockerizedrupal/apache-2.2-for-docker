@@ -30,4 +30,6 @@ class build::apache22 {
     source => 'puppet:///modules/build/etc/apache2/conf.d/logs',
     mode => 644
   }
+
+  bash_exec { 'mkdir -p /etc/htpasswd': }
 }
