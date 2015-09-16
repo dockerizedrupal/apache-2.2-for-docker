@@ -1,5 +1,5 @@
 apache:
-  image: dockerizedrupal/apache-2.2:1.0.7
+  image: dockerizedrupal/apache-2.2:1.0.8
   hostname: apache
   ports:
     - "80:80"
@@ -12,6 +12,11 @@ apache:
     - TIMEOUT=300
     - PROTOCOLS=https,http
     - INDEXES=Off
+    - KERBEROS_DEFAULT_REALM=
+    - KERBEROS_1_REALM=
+    - KERBEROS_1_DOMAIN=
+    - KERBEROS_1_KDC=
+    - KERBEROS_1_ADMIN_SERVER=
     - USER_ID=
     - GROUP_ID=
 apache-data:
