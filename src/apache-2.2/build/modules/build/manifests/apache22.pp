@@ -31,5 +31,11 @@ class build::apache22 {
     mode => 644
   }
 
+  file { '/etc/apache2/conf.d/security':
+    ensure => present,
+    source => 'puppet:///modules/build/etc/apache2/conf.d/security',
+    mode => 644
+  }
+
   bash_exec { 'mkdir -p /etc/htpasswd': }
 }
