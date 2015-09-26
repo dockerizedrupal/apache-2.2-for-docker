@@ -8,7 +8,7 @@ class run::apache22 {
   include run::apache22::conf_d::server_name
   include run::apache22::conf_d::timeout
 
-  if $http_basic_auth_password {
+  if $http_basic_auth == "On" {
     include run::apache22::http_basic_auth
   }
 
