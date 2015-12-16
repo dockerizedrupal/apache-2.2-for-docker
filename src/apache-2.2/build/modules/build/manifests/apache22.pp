@@ -2,7 +2,7 @@ class build::apache22 {
   require build::apache22::packages
   require build::apache22::supervisor
 
-  include build::apache24::logs
+  include build::apache22::logs
 
   bash_exec { 'usermod -d /apache/data www-data': }
 
