@@ -2,6 +2,8 @@ class build::apache22 {
   require build::apache22::packages
   require build::apache22::supervisor
 
+  include build::apache24::logs
+
   bash_exec { 'usermod -d /apache/data www-data': }
 
   bash_exec { 'a2enmod actions': }
@@ -23,12 +25,6 @@ class build::apache22 {
 
   file { '/etc/apache2/sites-enabled/000-default':
     ensure => absent
-  }
-
-  file { '/etc/apache2/conf.d/logs':
-    ensure => present,
-    source => 'puppet:///modules/build/etc/apache2/conf.d/logs',
-    mode => 644
   }
 
   file { '/etc/apache2/conf.d/security':
