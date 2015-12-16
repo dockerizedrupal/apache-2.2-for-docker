@@ -17,14 +17,30 @@ class build::apache22 {
     ensure => absent
   }
 
+  file { '/etc/apache2/sites-enabled/000-default':
+    ensure => absent
+  }
+
+  file { '/etc/apache2/conf.d/other-vhosts-access-log':
+    ensure => absent
+  }
+
+  file { '/var/log/apache2/other_vhosts_access.log':
+    ensure => absent
+  }
+
+  file { '/var/log/apache2/access.log':
+    ensure => absent
+  }
+
+  file { '/var/log/apache2/error.log':
+    ensure => absent
+  }
+
   file { '/etc/apache2/envvars':
     ensure => present,
     source => 'puppet:///modules/build/etc/apache2/envvars',
     mode => 755
-  }
-
-  file { '/etc/apache2/sites-enabled/000-default':
-    ensure => absent
   }
 
   file { '/etc/apache2/conf.d/security':
