@@ -1,6 +1,8 @@
 class run::apache22 {
   require run::user
 
+  bash_exec { "usermod -d $document_root www-data": }
+
   if $php_host {
     include run::apache22::conf_d::php
   }

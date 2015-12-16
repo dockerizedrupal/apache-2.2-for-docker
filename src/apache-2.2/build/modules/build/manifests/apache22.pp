@@ -4,8 +4,6 @@ class build::apache22 {
 
   include build::apache22::logs
 
-  bash_exec { 'usermod -d /apache/data www-data': }
-
   bash_exec { 'a2enmod actions': }
   bash_exec { 'a2enmod fastcgi': }
   bash_exec { 'a2enmod vhost_alias': }
