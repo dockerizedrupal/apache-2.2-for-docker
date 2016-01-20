@@ -1,8 +1,8 @@
+> **Notice:** *This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.*
+
 # docker-apache-2.2
 
 A Docker image for [Apache HTTP Server](http://httpd.apache.org/) version 2.2.
-
-This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 ## Run the container
 
