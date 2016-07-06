@@ -2,7 +2,12 @@
   AddHandler php .php
 
   Alias /php /apache/php
+
+<% if @fastcgiexternalserver_flush == "On" -%>
+  FastCgiExternalServer /apache/php -host <%= @php_host %> -flush -idle-timeout <%= @timeout %> -pass-header Authorization
+<% else -%>
   FastCgiExternalServer /apache/php -host <%= @php_host %> -idle-timeout <%= @timeout %> -pass-header Authorization
+<% end -%>
 
   <Location /php>
     Order deny,allow
